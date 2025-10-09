@@ -1,0 +1,78 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0a0a0f;
+    color: #e0e0ff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #6f42c1;
+}
+
+.logo {
+    max-width: 250px;
+    margin-bottom: 10px;
+}
+
+nav a {
+    color: #b388ff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #7df9ff;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.profile-img {
+    width: 250px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #6f42c1;
+    margin-bottom: 20px;
+}
+
+.testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #111122;
+    padding: 40px 20px;
+}
+
+.testimonial {
+    width: 45%;
+    background: rgba(40, 0, 70, 0.5);
+    border: 1px solid #7df9ff;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 0 15px #b388ff;
+}
+
+.testimonial a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #7df9ff;
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #6f42c1;
+    color: #aaa;
+}
