@@ -1,4 +1,3 @@
-// Toggle credits open/close
 document.addEventListener('DOMContentLoaded', () => {
   const credits = document.querySelectorAll('.credit-item');
 
