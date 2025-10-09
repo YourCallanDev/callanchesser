@@ -1,0 +1,246 @@
+/* ====== GLOBAL STYLES ====== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+a {
+  color: #7d5fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+a:hover {
+  color: #00bfff;
+}
+
+/* ====== NAVBAR ====== */
+nav {
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 0 20px rgba(125, 95, 255, 0.3);
+}
+
+nav .logo {
+  height: 50px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  color: #fff;
+  font-weight: 500;
+}
+
+nav ul li a:hover {
+  color: #7d5fff;
+  text-shadow: 0 0 8px #7d5fff;
+}
+
+/* ====== HERO ====== */
+.hero {
+  text-align: center;
+  padding: 150px 20px 80px;
+}
+
+.hero img {
+  width: 200px;
+  border-radius: 50%;
+  box-shadow: 0 0 30px #7d5fff;
+  margin-bottom: 30px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #00bfff;
+  text-shadow: 0 0 20px #00bfff;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: 20px auto;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.buttons {
+  margin-top: 40px;
+}
+
+.buttons a {
+  display: inline-block;
+  background: linear-gradient(90deg, #00bfff, #7d5fff);
+  color: white;
+  padding: 10px 25px;
+  margin: 10px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: 0.4s;
+}
+.buttons a:hover {
+  box-shadow: 0 0 15px #7d5fff;
+}
+
+/* ====== TESTIMONIALS ====== */
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 50px 20px;
+}
+
+.testimonial {
+  background-color: #111;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(125, 95, 255, 0.3);
+  transition: 0.3s;
+}
+
+.testimonial:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(0, 191, 255, 0.4);
+}
+
+.testimonial h3 {
+  color: #00bfff;
+  margin-bottom: 5px;
+}
+
+.testimonial h4 {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-top: 0;
+}
+
+.testimonial p {
+  color: #ddd;
+  line-height: 1.5;
+}
+
+.download-link {
+  margin-top: 10px;
+  display: inline-block;
+  color: #7d5fff;
+  text-shadow: 0 0 8px #7d5fff;
+}
+
+/* ====== FOOTER ====== */
+footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #111;
+  color: #777;
+  background-color: #000;
+}
+
+/* ====== CREDITS ====== */
+.credits-section {
+  max-width: 900px;
+  margin: 140px auto 60px;
+  padding: 0 20px;
+}
+
+.credits-section h2 {
+  color: #00bfff;
+  border-bottom: 2px solid #7d5fff;
+  padding-bottom: 10px;
+  margin-top: 50px;
+}
+
+.credit-item {
+  background-color: #111;
+  border-radius: 10px;
+  margin-top: 15px;
+  padding: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.credit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.credit-header h3 {
+  margin: 0;
+  color: #fff;
+}
+
+.credit-header span {
+  color: #7d5fff;
+  transition: 0.3s;
+}
+
+.credit-content {
+  display: none;
+  margin-top: 10px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* ====== CONTACT ====== */
+.contact-container {
+  max-width: 600px;
+  margin: 150px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input, textarea {
+  background: #111;
+  border: 2px solid #333;
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+  border-color: #7d5fff;
+  box-shadow: 0 0 10px #7d5fff;
+}
+
+button {
+  background: linear-gradient(90deg, #00bfff, #7d5fff);
+  border: none;
+  padding: 12px;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+button:hover {
+  box-shadow: 0 0 15px #7d5fff;
+}
