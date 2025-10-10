@@ -160,40 +160,67 @@ header nav a.active, header nav a:hover {
 /* Footer */
 footer { text-align: center; padding: 20px; border-top: 1px solid #111; color: #777; }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact | Callan Chesser</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-</head>
-<body>
-  <header>
-    <img src="assets/logo.png" alt="Callan Chesser Logo" class="logo" />
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="credits.html">Credits</a>
-      <a href="contact.html" class="active">Contact</a>
-    </nav>
-  </header>
+/* Contact Page */
+.contact-section {
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 20px;
+  text-align: center;
+}
 
-  <section class="contact-section">
-    <h2>Contact Me</h2>
-    <p>If you’d like to get in touch, fill out the form below and I’ll get back to you soon.</p>
+.contact-section h2 {
+  font-size: 2rem;
+  color: #9b59ff;
+  text-shadow: 0 0 8px #9b59ff;
+  margin-bottom: 10px;
+}
 
-    <form action="https://formspree.io/f/mwprrrej" method="POST" class="contact-form">
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" required placeholder="you@example.com" />
+.contact-section p {
+  color: #ccc;
+  margin-bottom: 30px;
+}
 
-      <label for="message">Your Message</label>
-      <textarea id="message" name="message" rows="6" required placeholder="Type your message here..."></textarea>
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
+.contact-form label {
+  color: #bdbdbd;
+  text-align: left;
+  font-size: 0.9rem;
+}
 
-  <footer>© 2025 Callan Chesser | Technical Theatre</footer>
-</body>
-</html>
+.contact-form input,
+.contact-form textarea {
+  background-color: #111;
+  border: 1px solid #444;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #9b59ff;
+  box-shadow: 0 0 10px #9b59ff;
+  outline: none;
+}
+
+.contact-form button {
+  background: linear-gradient(90deg, #9b59ff, #3b82f6);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  box-shadow: 0 0 15px #9b59ff;
+  transform: scale(1.02);
+}
