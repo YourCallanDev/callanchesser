@@ -261,3 +261,7 @@ footer { text-align: center; padding: 20px; border-top: 1px solid #111; color: #
 .arrow:hover {
   text-shadow: 0 0 15px #7df9ff;
 }
+.sub-section {
+  background-color: #0e0e1a;
+  border-left: 4px solid #7d5fff;
+}
