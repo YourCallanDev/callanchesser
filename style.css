@@ -224,3 +224,40 @@ footer { text-align: center; padding: 20px; border-top: 1px solid #111; color: #
   box-shadow: 0 0 15px #9b59ff;
   transform: scale(1.02);
 }
+/* Gallery */
+.slideshow {
+  position: relative;
+  max-width: 800px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.slideshow img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #7d5fff;
+  transition: opacity 0.5s ease;
+}
+
+.slideshow.hidden {
+  display: none;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 3rem;
+  color: #7df9ff;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.arrow.left { left: -60px; }
+.arrow.right { right: -60px; }
+
+.arrow:hover {
+  text-shadow: 0 0 15px #7df9ff;
+}
