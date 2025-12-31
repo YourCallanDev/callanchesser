@@ -1,49 +1,66 @@
-const shows = {
-  "Julia Ceaser": 3,
-  "Addams Family": 2,
-  "TGA's Got Talent 25’": 2
-};
-
 const select = document.getElementById("showSelect");
 const slideshow = document.getElementById("slideshow");
 const image = document.getElementById("slideImage");
 
 let currentShow = "";
-let currentIndex = 1;
+let images = [];
+let currentIndex = 0;
 
-// Populate dropdown
-Object.keys(shows).forEach(show => {
-  const option = document.createElement("option");
-  option.value = show;
-  option.textContent = show;
-  select.appendChild(option);
-});
+// Load gallery list
+fetch("assets/gallery/gallery.json")
+  .then(res => res.json())
+  .then(shows => {
+    shows.forEach(show => {
+      const option = document.createElement("option");
+      option.value = show;
+      option.textContent = show;
+      select.appendChild(option);
+    });
+  })
+  .catch(err => console.error("Gallery JSON error:", err));
 
-select.addEventListener("change", () => {
+// When show selected
+select.addEventListener("change", async () => {
   currentShow = select.value;
   if (!currentShow) return;
 
-  currentIndex = 1;
+  images = [];
+  currentIndex = 0;
+
+  // Try loading images until one fails
+  for (let i = 1; i < 100; i++) {
+    const img = new Image();
+    img.src = `assets/gallery/${currentShow}/${i}.jpg`;
+
+    try {
+      await img.decode();
+      images.push(img.src);
+    } catch {
+      break;
+    }
+  }
+
+  if (images.length === 0) return;
+
   slideshow.classList.remove("hidden");
-  updateImage();
+  showImage();
 });
 
-function updateImage() {
+function showImage() {
   image.style.opacity = 0;
   setTimeout(() => {
-    image.src = `assets/gallery/${currentShow}/${currentIndex}.jpg`;
+    image.src = images[currentIndex];
     image.style.opacity = 1;
   }, 200);
 }
 
+// Navigation
 document.querySelector(".arrow.left").addEventListener("click", () => {
-  currentIndex--;
-  if (currentIndex < 1) currentIndex = shows[currentShow];
-  updateImage();
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage();
 });
 
 document.querySelector(".arrow.right").addEventListener("click", () => {
-  currentIndex++;
-  if (currentIndex > shows[currentShow]) currentIndex = 1;
-  updateImage();
+  currentIndex = (currentIndex + 1) % images.length;
+  showImage();
 });
