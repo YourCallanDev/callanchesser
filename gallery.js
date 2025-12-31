@@ -1,22 +1,14 @@
 const shows = {
-  /* Drumchapel Amateur Pantomime Club */
-  "Snow White & The Magnificent Eight": 1,
-
-  /* The Glasgow Academy – Prep Shows */
-  "Shrek (TGA Prep Show)": 1,
-  "Addams Family": 2,
+  "Snow White & The Magnificent Eight": 12, // number of images
+  "Shrek": 1,
+  "Addams Family": 1,
+  "Granny Got Stuck In The Time Machine": 1,
   "Granny Got Stuck In The Alexa": 1,
   "Granny Got Stuck In The Telly": 1,
-
-  /* TGA Fashion */
   "TGA Fashion 24’": 1,
   "TGA Fashion 25’": 1,
-
-  /* TGA’s Got Talent */
   "TGA's Got Talent 24’": 2,
   "TGA's Got Talent 25’": 2,
-
-  /* Summer In The City */
   "Willy Wonka (Summer 2024)": 1,
   "Harry Potter (Summer 2024)": 1,
   "Shrek (Filmed – Oct 2024)": 1,
@@ -29,20 +21,23 @@ const select = document.getElementById("showSelect");
 const slideshow = document.getElementById("slideshow");
 const image = document.getElementById("slideImage");
 
-let currentShowKey = "";
+let currentShow = "";
 let currentIndex = 1;
 
-/* Populate dropdown */
-Object.keys(shows).forEach(showName => {
+// Supported image extensions
+const extensions = ['jpg', 'jpeg', 'png'];
+
+// Populate dropdown
+Object.keys(shows).forEach(show => {
   const option = document.createElement("option");
-  option.value = showName;
-  option.textContent = showName;
+  option.value = show;
+  option.textContent = show;
   select.appendChild(option);
 });
 
 select.addEventListener("change", () => {
-  currentShowKey = select.value;
-  if (!currentShowKey) return;
+  currentShow = select.value;
+  if (!currentShow) return;
 
   currentIndex = 1;
   slideshow.classList.remove("hidden");
@@ -51,20 +46,40 @@ select.addEventListener("change", () => {
 
 function updateImage() {
   image.style.opacity = 0;
+
   setTimeout(() => {
-    image.src = `assets/gallery/${currentShowKey}/${currentIndex}.jpg`;
-    image.style.opacity = 1;
+    let loaded = false;
+
+    for (let ext of extensions) {
+      const src = `assets/gallery/${currentShow}/${currentIndex}.${ext}`;
+      const img = new Image();
+      img.src = src;
+
+      img.onload = () => {
+        image.src = src;
+        image.style.opacity = 1;
+        loaded = true;
+      };
+
+      img.onerror = () => {
+        if (!loaded) {
+          image.src = ''; // fallback if no image found
+        }
+      };
+
+      if (loaded) break;
+    }
   }, 200);
 }
 
 document.querySelector(".arrow.left").addEventListener("click", () => {
   currentIndex--;
-  if (currentIndex < 1) currentIndex = shows[currentShowKey];
+  if (currentIndex < 1) currentIndex = shows[currentShow];
   updateImage();
 });
 
 document.querySelector(".arrow.right").addEventListener("click", () => {
   currentIndex++;
-  if (currentIndex > shows[currentShowKey]) currentIndex = 1;
+  if (currentIndex > shows[currentShow]) currentIndex = 1;
   updateImage();
 });
