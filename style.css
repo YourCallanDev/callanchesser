@@ -607,3 +607,75 @@ footer { text-align: center; padding: 20px; border-top: 1px solid #111; color: #
     border: none;
     box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
 }
+/* === UNIFIED CREDITS THEME === */
+
+.credits-page {
+    max-width: 1400px;
+    margin: 60px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* Category Card - Matches Testimonials */
+.unified-card {
+    background-color: #111122;
+    border-radius: 20px;
+    padding: 40px 25px;
+    box-shadow: 0 0 15px #7d5fff;
+    border: 1px solid rgba(125, 95, 255, 0.3);
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.unified-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px #00bfff;
+}
+
+.unified-card h2 {
+    color: #00bfff;
+    text-shadow: 0 0 10px #00bfff;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #7d5fff;
+    padding-bottom: 10px;
+}
+
+/* Subsection Pilles (The Purple Headers) */
+.subsection-pill {
+    background: #0a0a0a;
+    color: #b388ff;
+    padding: 8px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 20px 0 10px;
+    border: 1px solid #7d5fff;
+    display: inline-block;
+}
+
+/* Show Pills - The Links */
+.show-pill {
+    display: block;
+    background: linear-gradient(90deg, #00bfff, #7d5fff);
+    color: #fff !important;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.3s all ease;
+    text-align: center;
+}
+
+.show-pill:hover {
+    box-shadow: 0 0 15px #7df9ff;
+    transform: scale(1.03);
+}
+
+.subsection-group {
+    display: flex;
+    flex-direction: column;
+}
