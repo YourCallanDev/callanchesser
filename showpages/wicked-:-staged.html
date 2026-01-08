@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wicked : Staged | Callan Chesser</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script defer src="../script.js"></script>
+</head>
+<body>
+<header>
+  <img src="../assets/logo.png" alt="Callan Chesser Logo" class="logo">
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../credits.html">Credits</a>
+    <a href="../gallery.html">Gallery</a>
+    <a href="../contact.html">Contact</a>
+  </nav>
+</header>
+<section class="show-wrapper">
+  <a href="../credits.html" class="back-btn reveal">← Back to Credits</a>
+  <div class="show-layout reveal">
+    <div class="show-images"></div>
+    <div class="show-info">
+      <div class="info-card title-card reveal reveal-delay-1">
+        <h1>Wicked : Staged</h1>
+        <p><strong>Date:</strong> 4th to 8th of August, 2025</p>
+        <p><strong>Role:</strong> Technical Director</p>
+      </div>
+      <div class="info-card description-card reveal reveal-delay-2">
+        <h3>About the Show</h3>
+        <p>Written & directed by Liam Campbell, I was back for the lights & sound for Wicked. There was loads going on with new equipment coming in.</p>
+      </div>
+      <div class="info-card small-card reveal reveal-delay-3">
+        <h3>Extra Notes</h3>
+        <p>Hooked up a new analogue speaker system and used lights all about the auditorium to capture every angle. Theatre capacity 150.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>© 2025 Callan Chesser | Technical Theatre</footer>
+<script>
+  const showImages = document.querySelector('.show-images');
+  const showLayout = document.querySelector('.show-layout');
+  if (!showImages.querySelector('img')) {
+    showLayout.classList.add('no-images');
+    showImages.style.display = 'none';
+  }
+</script>
+</body>
+</html>
