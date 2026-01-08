@@ -3,11 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SHOW NAME | Callan Chesser</title>
-
-  <link rel="stylesheet" href="../style.css">
+  <title>SHOW TITLE | Callan Chesser</title>
+  <link rel="stylesheet" href="../style.css" />
   <script defer src="../script.js"></script>
-  <script defer src="show.js"></script>
 </head>
 <body>
 
@@ -15,7 +13,7 @@
   <img src="../assets/logo.png" alt="Callan Chesser Logo" class="logo">
   <nav>
     <a href="../index.html">Home</a>
-    <a href="../credits.html" class="active">Credits</a>
+    <a href="../credits.html">Credits</a>
     <a href="../gallery.html">Gallery</a>
     <a href="../contact.html">Contact</a>
   </nav>
@@ -23,45 +21,61 @@
 
 <section class="show-wrapper">
 
+  <!-- BACK BUTTON -->
   <a href="../credits.html" class="back-btn reveal">← Back to Credits</a>
 
-  <div class="show-layout reveal reveal-delay-1">
+  <!-- SHOW LAYOUT -->
+  <div class="show-layout reveal">
 
-    <!-- IMAGE BLOCK -->
-    <div id="show-images" class="show-images hidden">
-      <button class="arrow left">❮</button>
-      <img id="show-image" src="" alt="Production image">
-      <button class="arrow right">❯</button>
+    <!-- SHOW IMAGES -->
+    <div class="show-images">
+      <!-- Example images, remove or replace as needed -->
+      <img src="../assets/gallery/SHOWNAME/1.jpg" alt="Show Image 1" class="reveal reveal-delay-1">
+      <img src="../assets/gallery/SHOWNAME/2.jpg" alt="Show Image 2" class="reveal reveal-delay-2">
     </div>
 
-    <!-- INFO BLOCK -->
+    <!-- SHOW INFO -->
     <div class="show-info">
-
-      <div class="info-card title-card">
-        <h1>SHOW NAME</h1>
+      
+      <!-- TITLE CARD -->
+      <div class="info-card title-card reveal reveal-delay-1">
+        <h1>SHOW TITLE</h1>
+        <p><strong>Date:</strong> SHOW DATE</p>
+        <p><strong>Role:</strong> YOUR ROLE</p>
       </div>
 
-      <div class="info-card small-card">
-        <p><strong>Role:</strong> Lighting Operator</p>
-        <p><strong>Company:</strong> The Glasgow Academy</p>
-        <p><strong>Year:</strong> 2024</p>
-      </div>
-
-      <div class="info-card description-card">
-        <h3>Description</h3>
+      <!-- DESCRIPTION CARD -->
+      <div class="info-card description-card reveal reveal-delay-2">
+        <h3>About the Show</h3>
         <p>
-          Brief overview of the production, scale of the show,
-          venue, and your responsibilities. Keep this concise
-          but informative.
+          SHOW DESCRIPTION: Talk about your experience, what you did technically, fun anecdotes, challenges, highlights, etc.
+        </p>
+      </div>
+
+      <!-- OPTIONAL ADDITIONAL CARDS -->
+      <div class="info-card small-card reveal reveal-delay-3">
+        <h3>Extra Notes</h3>
+        <p>
+          Any additional info like crew members, special effects, or awards.
         </p>
       </div>
 
     </div>
-
   </div>
-
 </section>
 
 <footer>© 2025 Callan Chesser | Technical Theatre</footer>
+
+<script>
+  // Detect if show-images has no img tags, then apply full-page centered layout
+  const showImages = document.querySelector('.show-images');
+  const showLayout = document.querySelector('.show-layout');
+
+  if (!showImages.querySelector('img')) {
+    showLayout.classList.add('no-images');
+    showImages.style.display = 'none';
+  }
+</script>
+
 </body>
 </html>
