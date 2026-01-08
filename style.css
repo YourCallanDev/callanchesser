@@ -342,3 +342,96 @@ footer { text-align: center; padding: 20px; border-top: 1px solid #111; color: #
   transform: translateY(-4px) scale(1.05);
   box-shadow: 0 0 20px #b8ff6a;
 }
+/* === CREDITS PAGE === */
+
+.credits-page {
+  max-width: 1400px;
+  margin: 140px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 50px;
+}
+
+/* COLUMN */
+.credits-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+/* CATEGORY CARDS */
+.category-card {
+  width: 100%;
+  padding: 50px 20px;
+  border-radius: 30px;
+  text-align: center;
+  color: white;
+}
+
+.gradient-main {
+  background: linear-gradient(135deg, #ff5f6d, #9b5de5);
+}
+
+.gradient-blue {
+  background: linear-gradient(135deg, #0d3b9e, #9b5de5);
+}
+
+.gradient-cyan {
+  background: linear-gradient(135deg, #845ec2, #4dd5e3);
+}
+
+/* SUBSECTIONS (PURPLE) */
+.subsection-pill {
+  background: linear-gradient(135deg, #ff5f6d, #9b5de5);
+  color: white;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+.sub-pill-alt {
+  background: #8b5cf6;
+  padding: 10px 22px;
+  border-radius: 999px;
+  color: white;
+  font-size: 0.85rem;
+}
+
+/* YEARS */
+.year-pill {
+  background: #8b5cf6;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+/* SHOW PILLS (GREEN) */
+.show-pill {
+  background: #ff5f6d;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.show-pill.green {
+  background: #b7f774;
+  color: #222;
+}
+
+.show-pill:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* GROUPING */
+.subsection-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
