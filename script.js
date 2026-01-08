@@ -38,3 +38,41 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 
 reveals.forEach(r => observer.observe(r));
+const gallery = document.getElementById("show-images");
+const image = document.getElementById("show-image");
+const left = document.querySelector(".arrow.left");
+const right = document.querySelector(".arrow.right");
+
+if (gallery) {
+  const SHOW_FOLDER = "SHOW NAME"; // EXACT folder name
+  const basePath = `../assets/gallery/${SHOW_FOLDER}/`;
+
+  const extensions = ["jpg", "jpeg", "png"];
+  let images = [];
+  let index = 0;
+
+  for (let i = 1; i <= 20; i++) {
+    extensions.forEach(ext => {
+      const img = new Image();
+      img.src = `${basePath}${i}.${ext}`;
+      img.onload = () => {
+        images.push(img.src);
+        if (images.length === 1) {
+          image.src = images[0];
+          gallery.classList.remove("hidden");
+          document.querySelector(".show-layout").classList.remove("no-images");
+        }
+      };
+    });
+  }
+
+  left?.addEventListener("click", () => {
+    index = (index - 1 + images.length) % images.length;
+    image.src = images[index];
+  });
+
+  right?.addEventListener("click", () => {
+    index = (index + 1) % images.length;
+    image.src = images[index];
+  });
+}
