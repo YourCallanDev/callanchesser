@@ -679,3 +679,35 @@ footer { text-align: center; padding: 20px; border-top: 1px solid #111; color: #
     display: flex;
     flex-direction: column;
 }
+/* === CONTACT SPECIFICS === */
+
+.contact-container {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #7d5fff;
+    background: #0a0a0a;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+    transition: 0.3s;
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #00bfff;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.4);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
