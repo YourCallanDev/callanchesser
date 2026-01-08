@@ -3,49 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Granny Got Stuck In The Time Machine | Callan Chesser</title>
+  <title>Time Machine | Callan Chesser</title>
   <link rel="stylesheet" href="../style.css" />
   <script defer src="../script.js"></script>
 </head>
 <body>
 <header>
   <img src="../assets/logo.png" alt="Callan Chesser Logo" class="logo">
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../credits.html">Credits</a>
-    <a href="../gallery.html">Gallery</a>
-    <a href="../contact.html">Contact</a>
-  </nav>
+  <nav><a href="../index.html">Home</a><a href="../credits.html">Credits</a><a href="../contact.html">Contact</a></nav>
 </header>
 <section class="show-wrapper">
   <a href="../credits.html" class="back-btn reveal">← Back to Credits</a>
-  <div class="show-layout reveal">
-    <div class="show-images"></div>
+  <div class="show-layout reveal reveal-delay-1">
+    <div class="show-images" data-folder="Granny Got Stuck In The Time Machine" data-total="1">
+      <button class="arrow left">❮</button>
+      <img id="slideImage" src="" alt="Show Image">
+      <button class="arrow right">❯</button>
+    </div>
     <div class="show-info">
-      <div class="info-card title-card reveal reveal-delay-1">
+      <div class="info-card title-card reveal reveal-delay-2">
         <h1>Granny Got Stuck In The Time Machine</h1>
-        <p><strong>Date:</strong> 15th to 18th of December 2024</p>
-        <p><strong>Role:</strong> Video Director/SM On Book</p>
+        <p><strong>Date:</strong> 15th to 18th Dec 2024</p>
+        <p><strong>Role:</strong> Video Director / SM On Book</p>
       </div>
-      <div class="info-card description-card reveal reveal-delay-2">
+      <div class="info-card description-card reveal reveal-delay-3">
         <h3>About the Show</h3>
-        <p>Directed & written by Neil S, musically directed by the TGA music department. For this show I designed all of the projections, and then operated it along with calling the show!</p>
-      </div>
-      <div class="info-card small-card reveal reveal-delay-3">
-        <h3>Extra Notes</h3>
-        <p>Main cast P7s (Year 6), with P1–P7 involved in songs. Included technical & dress runs and 4 performances.</p>
+        <p>I designed all the projections for this P7 production and operated them while calling the show. It involved coordinating technical runs and 4 live performances.</p>
       </div>
     </div>
   </div>
 </section>
 <footer>© 2025 Callan Chesser | Technical Theatre</footer>
-<script>
-  const showImages = document.querySelector('.show-images');
-  const showLayout = document.querySelector('.show-layout');
-  if (!showImages.querySelector('img')) {
-    showLayout.classList.add('no-images');
-    showImages.style.display = 'none';
-  }
-</script>
 </body>
 </html>
