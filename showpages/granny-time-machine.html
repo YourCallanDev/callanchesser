@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SHOW TITLE | Callan Chesser</title>
+  <title>SHOW NAME | Callan Chesser</title>
 
   <link rel="stylesheet" href="../style.css">
   <script defer src="../script.js"></script>
@@ -15,51 +15,47 @@
   <img src="../assets/logo.png" alt="Callan Chesser Logo" class="logo">
   <nav>
     <a href="../index.html">Home</a>
-    <a href="../credits.html">Credits</a>
+    <a href="../credits.html" class="active">Credits</a>
     <a href="../gallery.html">Gallery</a>
     <a href="../contact.html">Contact</a>
   </nav>
 </header>
 
-<section class="show-page">
+<section class="show-wrapper">
 
-  <!-- SHOW HEADER -->
-  <div class="show-header reveal">
-    <h1>SHOW TITLE</h1>
-    <p class="show-subtitle">Role • Company • Year</p>
-  </div>
+  <a href="../credits.html" class="back-btn reveal">← Back to Credits</a>
 
-  <!-- IMAGE / CONTENT WRAPPER -->
-  <div class="show-content reveal reveal-delay-1">
+  <div class="show-layout reveal reveal-delay-1">
 
-    <!-- IMAGE GALLERY (AUTO-HIDDEN IF EMPTY) -->
-    <div id="show-gallery" class="show-gallery hidden">
+    <!-- IMAGE BLOCK -->
+    <div id="show-images" class="show-images hidden">
       <button class="arrow left">❮</button>
-      <img id="show-image" src="" alt="Show image">
+      <img id="show-image" src="" alt="Production image">
       <button class="arrow right">❯</button>
     </div>
 
-    <!-- TEXT CONTENT -->
-    <div class="show-details">
-      <h2>About the Show</h2>
-      <p>
-        Short description of the production, your role, scale of the show,
-        and any notable technical elements.
-      </p>
+    <!-- INFO BLOCK -->
+    <div class="show-info">
 
-      <h2>Your Role</h2>
-      <ul>
-        <li>Role 1</li>
-        <li>Role 2</li>
-        <li>Role 3</li>
-      </ul>
+      <div class="info-card title-card">
+        <h1>SHOW NAME</h1>
+      </div>
 
-      <h2>Credits</h2>
-      <p>
-        Director: <br>
-        Lighting: <br>
-        Sound: <br>
-      </p>
+      <div class="info-card small-card">
+        <p><strong>Role:</strong> Lighting Operator</p>
+        <p><strong>Company:</strong> The Glasgow Academy</p>
+        <p><strong>Year:</strong> 2024</p>
+      </div>
+
+      <div class="info-card description-card">
+        <h3>Description</h3>
+        <p>
+          Brief overview of the production, scale of the show,
+          venue, and your responsibilities. Keep this concise
+          but informative.
+        </p>
+      </div>
+
     </div>
 
   </div>
