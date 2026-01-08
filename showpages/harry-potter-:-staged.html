@@ -3,49 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Harry Potter : Staged | Callan Chesser</title>
+  <title>Harry Potter | Callan Chesser</title>
   <link rel="stylesheet" href="../style.css" />
   <script defer src="../script.js"></script>
 </head>
 <body>
 <header>
   <img src="../assets/logo.png" alt="Callan Chesser Logo" class="logo">
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../credits.html">Credits</a>
-    <a href="../gallery.html">Gallery</a>
-    <a href="../contact.html">Contact</a>
-  </nav>
+  <nav><a href="../index.html">Home</a><a href="../credits.html">Credits</a><a href="../contact.html">Contact</a></nav>
 </header>
 <section class="show-wrapper">
   <a href="../credits.html" class="back-btn reveal">← Back to Credits</a>
-  <div class="show-layout reveal">
-    <div class="show-images"></div>
+  <div class="show-layout reveal reveal-delay-1">
+    <div class="show-images" data-folder="Harry Potter (Summer 2024)" data-total="1">
+      <button class="arrow left">❮</button>
+      <img id="slideImage" src="" alt="Show Image">
+      <button class="arrow right">❯</button>
+    </div>
     <div class="show-info">
-      <div class="info-card title-card reveal reveal-delay-1">
+      <div class="info-card title-card reveal reveal-delay-2">
         <h1>Harry Potter : Staged</h1>
-        <p><strong>Date:</strong> 8th to 12th of July, 2024</p>
+        <p><strong>Date:</strong> 8th to 12th July 2024</p>
         <p><strong>Role:</strong> Technical Director</p>
       </div>
-      <div class="info-card description-card reveal reveal-delay-2">
+      <div class="info-card description-card reveal reveal-delay-3">
         <h3>About the Show</h3>
-        <p>For my company debut, it was wonderful to join and lead the tech dept. of Harry Potter. Written & directed by Sophia C, it was my first camp so I was trying to involve as much as possible.</p>
-      </div>
-      <div class="info-card small-card reveal reveal-delay-3">
-        <h3>Extra Notes</h3>
-        <p>Kids aged 5-12 performing with a theatre capacity of 150. Used personal and ambient mics to handle space access issues.</p>
+        <p>My debut as TD for Summer In The City. I led the technical department for a cast of 5-12 year olds, implementing ambient miking strategies to suit the venue.</p>
       </div>
     </div>
   </div>
 </section>
 <footer>© 2025 Callan Chesser | Technical Theatre</footer>
-<script>
-  const showImages = document.querySelector('.show-images');
-  const showLayout = document.querySelector('.show-layout');
-  if (!showImages.querySelector('img')) {
-    showLayout.classList.add('no-images');
-    showImages.style.display = 'none';
-  }
-</script>
 </body>
 </html>
