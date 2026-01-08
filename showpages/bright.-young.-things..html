@@ -10,42 +10,29 @@
 <body>
 <header>
   <img src="../assets/logo.png" alt="Callan Chesser Logo" class="logo">
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../credits.html">Credits</a>
-    <a href="../gallery.html">Gallery</a>
-    <a href="../contact.html">Contact</a>
-  </nav>
+  <nav><a href="../index.html">Home</a><a href="../credits.html">Credits</a><a href="../contact.html">Contact</a></nav>
 </header>
 <section class="show-wrapper">
   <a href="../credits.html" class="back-btn reveal">← Back to Credits</a>
-  <div class="show-layout reveal">
-    <div class="show-images"></div>
+  <div class="show-layout reveal reveal-delay-1">
+    <div class="show-images" data-folder="Bright. Young. Things." data-total="0">
+      <button class="arrow left">❮</button>
+      <img id="slideImage" src="" alt="Show Image">
+      <button class="arrow right">❯</button>
+    </div>
     <div class="show-info">
-      <div class="info-card title-card reveal reveal-delay-1">
+      <div class="info-card title-card reveal reveal-delay-2">
         <h1>Bright. Young. Things.</h1>
-        <p><strong>Date:</strong> February 12th, 2025</p>
-        <p><strong>Role:</strong> Stage Manager/Tech Designer</p>
+        <p><strong>Date:</strong> 12th Feb 2025</p>
+        <p><strong>Role:</strong> Stage Manager / Tech Designer</p>
       </div>
-      <div class="info-card description-card reveal reveal-delay-2">
+      <div class="info-card description-card reveal reveal-delay-3">
         <h3>About the Show</h3>
-        <p>For my debut Drama Club production, we did Bright. Young. Things. It was a great show with S1-S3 performing. I did the overall design with our tech director Mrs Wishart who assisted.</p>
-      </div>
-      <div class="info-card small-card reveal reveal-delay-3">
-        <h3>Extra Notes</h3>
-        <p>This was a great show to learn more about plots and different ways of using lights. We had a dress, tech, and 1 show. Great show to start with!</p>
+        <p>My debut Drama Club production featuring S1–S3 students. I worked closely with Mrs. Wishart to design the lighting plots and manage the stage for the live performance.</p>
       </div>
     </div>
   </div>
 </section>
 <footer>© 2025 Callan Chesser | Technical Theatre</footer>
-<script>
-  const showImages = document.querySelector('.show-images');
-  const showLayout = document.querySelector('.show-layout');
-  if (!showImages.querySelector('img')) {
-    showLayout.classList.add('no-images');
-    showImages.style.display = 'none';
-  }
-</script>
 </body>
 </html>
