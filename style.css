@@ -711,3 +711,104 @@ footer { text-align: center; padding: 20px; border-top: 1px solid #111; color: #
 .contact-form textarea {
     resize: vertical;
 }
+/* === RECENT PRODUCTIONS & CREDITS THEME === */
+
+.credits-wrapper {
+    padding-top: 60px;
+    background-color: #000; /* Pure black like index */
+}
+
+.hero-title {
+    text-align: center;
+    color: #00bfff;
+    text-shadow: 0 0 15px #00bfff;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* Recent Productions Scroll */
+.recent-scroll-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.recent-card {
+    position: relative;
+    background: #111122;
+    border: 1px solid #7d5fff;
+    padding: 20px 40px;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: 600;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.recent-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #7df9ff;
+    color: #7df9ff;
+}
+
+/* Category Grid */
+.credits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1300px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.category-box {
+    background: #0a0a0a;
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid #333;
+    box-shadow: 0 0 15px rgba(125, 95, 255, 0.1);
+    height: 100%;
+}
+
+.category-title {
+    color: #00bfff;
+    text-shadow: 0 0 10px #00bfff;
+    border-bottom: 1px solid #7d5fff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.sub-heading {
+    display: block;
+    color: #b388ff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.credit-link {
+    display: block;
+    color: #ccc;
+    padding: 10px 0;
+    border-bottom: 1px solid #222;
+    transition: 0.3s;
+}
+
+.credit-link:hover {
+    color: #7df9ff;
+    padding-left: 10px;
+    text-shadow: 0 0 8px #7df9ff;
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #7d5fff, transparent);
+    margin: 60px auto;
+    width: 80%;
+}
