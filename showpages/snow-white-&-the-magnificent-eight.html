@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Snow White & The Magnificent Eight | Callan Chesser</title>
+  <title>Snow White | Callan Chesser</title>
   <link rel="stylesheet" href="../style.css" />
   <script defer src="../script.js"></script>
 </head>
@@ -13,40 +13,30 @@
   <nav>
     <a href="../index.html">Home</a>
     <a href="../credits.html">Credits</a>
-    <a href="../gallery.html">Gallery</a>
     <a href="../contact.html">Contact</a>
   </nav>
 </header>
 <section class="show-wrapper">
   <a href="../credits.html" class="back-btn reveal">← Back to Credits</a>
-  <div class="show-layout reveal">
-    <div class="show-images">
-      </div>
+  <div class="show-layout reveal reveal-delay-1">
+    <div class="show-images" data-folder="Snow White & The Magnificent Eight" data-total="12">
+      <button class="arrow left">❮</button>
+      <img id="slideImage" src="" alt="Show Image">
+      <button class="arrow right">❯</button>
+    </div>
     <div class="show-info">
-      <div class="info-card title-card reveal reveal-delay-1">
+      <div class="info-card title-card reveal reveal-delay-2">
         <h1>Snow White & The Magnificent Eight</h1>
-        <p><strong>Date:</strong> 22nd to 23rd of November, 2025</p>
-        <p><strong>Role:</strong> Technical Director/Sound Mixer</p>
+        <p><strong>Date:</strong> 22nd to 23rd Nov 2025</p>
+        <p><strong>Role:</strong> Technical Director / Sound Mixer</p>
       </div>
-      <div class="info-card description-card reveal reveal-delay-2">
+      <div class="info-card description-card reveal reveal-delay-3">
         <h3>About the Show</h3>
-        <p>For my debut amateur production at Drumchapel Panto Club, I was the Technical Director and Sound Mixer. As the technical director it was my job to design, and arrange all logistical things. This show had a lot of cool lighting effects and cues, as well as the use of mics for every character.</p>
-      </div>
-      <div class="info-card small-card reveal reveal-delay-3">
-        <h3>Extra Notes</h3>
-        <p>I had two additional crew to help me (on-book SM, and LX operator). During rehearsals every Sunday I would attend and sort logistics and practice operation. This was a very fun debut performance!</p>
+        <p>My debut amateur production at Drumchapel Panto Club. I designed all logistical elements, managed a crew of two, and handled complex lighting effects and full cast mic mixing.</p>
       </div>
     </div>
   </div>
 </section>
 <footer>© 2025 Callan Chesser | Technical Theatre</footer>
-<script>
-  const showImages = document.querySelector('.show-images');
-  const showLayout = document.querySelector('.show-layout');
-  if (!showImages.querySelector('img')) {
-    showLayout.classList.add('no-images');
-    showImages.style.display = 'none';
-  }
-</script>
 </body>
 </html>
