@@ -552,3 +552,58 @@ footer { text-align: center; padding: 20px; border-top: 1px solid #111; color: #
     grid-template-columns: 1fr;
   }
 }
+/* Ensure the reveal system works across all pages */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Show Layout Enhancements */
+.show-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: start; /* Keeps items toward the top to avoid scrolling */
+    min-height: 70vh;
+}
+
+.show-images {
+    position: relative;
+    background: #1a1a2e;
+    border: 2px solid #7d5fff;
+    border-radius: 25px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.show-images img {
+    max-height: 500px;
+    object-fit: contain;
+    transition: opacity 0.4s ease;
+}
+
+.info-card {
+    background: #111122; /* Matches Index Testimonial Color */
+    border: 1px solid #7d5fff;
+    box-shadow: 0 0 15px rgba(125, 95, 255, 0.2);
+}
+
+.show-pill.green {
+    background: #7df9ff; /* Cyan accent for buttons */
+    color: #000;
+}
+
+/* Back button matching index buttons */
+.back-btn {
+    background: linear-gradient(90deg,#00bfff,#7d5fff) !important;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+}
