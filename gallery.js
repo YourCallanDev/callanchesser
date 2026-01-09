@@ -83,3 +83,57 @@ document.querySelector(".arrow.right").addEventListener("click", () => {
   if (currentIndex > shows[currentShow]) currentIndex = 1;
   updateImage();
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const showTitle = document.querySelector("h1").innerText.trim();
+    const displayImg = document.getElementById("current-slide");
+    const container = document.querySelector(".show-images");
+    
+    let images = [];
+    let currentIndex = 0;
+    const extensions = ['png', 'jpg', 'jpeg', 'PNG', 'JPG'];
+
+    // This function tries to find images 1 through 10
+    async function scanForImages() {
+        for (let i = 1; i <= 10; i++) {
+            let found = false;
+            for (let ext of extensions) {
+                const path = `assets/gallery/${showTitle}/${i}.${ext}`;
+                const exists = await checkImage(path);
+                if (exists) {
+                    images.push(path);
+                    found = true;
+                    break; // Move to next number (e.g., from 1 to 2)
+                }
+            }
+            // If we don't find "1", "2", etc. in any format, we stop searching
+            if (!found && i > 1) break; 
+        }
+
+        if (images.length > 0) {
+            displayImg.src = images[0];
+            container.classList.remove("hidden");
+        } else {
+            console.error("No images found in: assets/gallery/" + showTitle);
+            document.querySelector(".show-layout").classList.add("no-images");
+        }
+    }
+
+    function checkImage(url) {
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.onload = () => resolve(true);
+            img.onerror = () => resolve(false);
+            img.src = url;
+        });
+    }
+
+    window.changeSlide = function (direction) {
+        if (images.length === 0) return;
+        currentIndex += direction;
+        if (currentIndex >= images.length) currentIndex = 0;
+        if (currentIndex < 0) currentIndex = images.length - 1;
+        displayImg.src = images[currentIndex];
+    };
+
+    scanForImages();
+});
