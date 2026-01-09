@@ -1196,3 +1196,69 @@ footer { text-align: center; padding: 20px; border-top: 1px solid #111; color: #
 .testimonial-carousel-wrapper:hover .card-content {
     animation-play-state: paused;
 }
+/* === CONTINUOUS TESTIMONIAL SLIDER === */
+
+.testimonial-slider {
+    background: #0a0a0a;
+    padding: 40px 0;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Creating a shadow fade on the edges to match the logo bar look */
+.testimonial-slider::before,
+.testimonial-slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+}
+.testimonial-slider::before { left: 0; background: linear-gradient(to right, #0a0a0a, transparent); }
+.testimonial-slider::after { right: 0; background: linear-gradient(to left, #0a0a0a, transparent); }
+
+.slider-container {
+    display: flex;
+    width: 100%;
+}
+
+.slider-track {
+    display: flex;
+    /* Adjust '30s' to change the speed (higher is slower) */
+    animation: continuousScroll 30s linear infinite;
+    /* This track needs to be exactly double the width of one set of items */
+    width: calc(350px * 6); 
+}
+
+.testi-item {
+    width: 350px; /* Fixed width for each 'logo' style card */
+    flex-shrink: 0;
+    padding: 20px;
+    margin: 0 15px;
+    background: #161616;
+    border-radius: 12px;
+    border: 1px solid #333;
+    color: #eee;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.testi-item strong { color: #00bfff; display: block; margin-bottom: 5px; }
+.testi-item p { font-size: 0.9rem; margin-bottom: 10px; font-style: italic; }
+.testi-item a { color: #7df9ff; font-size: 0.8rem; text-decoration: underline; }
+
+/* The loop animation */
+@keyframes continuousScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-350px * 3 - 90px)); } 
+    /* The math: (Card Width * Number of Unique Cards) + Total Margins */
+}
+
+/* Optional: Pause on hover if you want them to be able to click the download link easily */
+.slider-track:hover {
+    animation-play-state: paused;
+}
