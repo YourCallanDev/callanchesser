@@ -1095,3 +1095,104 @@ footer { text-align: center; padding: 20px; border-top: 1px solid #111; color: #
 .testimonial-track:hover .card-content {
     animation-play-state: paused;
 }
+/* === THE FULLY WORKING CENTER-FOCUS SCROLLER === */
+
+.testimonial-carousel-wrapper {
+    width: 100%;
+    overflow: hidden; /* This hides the cards far off-screen */
+    padding: 100px 0;
+    background-color: #000;
+}
+
+.testimonial-viewport {
+    width: 60%; /* This defines the width of the CENTER card */
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: visible; /* This allows the side cards to "peek" in */
+    position: relative;
+}
+
+.testimonial-track {
+    display: flex;
+    width: 500%; /* 5 cards total (100% each relative to viewport) */
+    /* 15 seconds total = 5 seconds per unique card */
+    animation: centerLoop 15s cubic-bezier(0.85, 0, 0.15, 1) infinite;
+}
+
+.testimonial-card {
+    width: 20%; /* Each card is exactly 1/5th of the track width */
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.card-content {
+    background-color: #111122;
+    border: 2px solid rgba(125, 95, 255, 0.2);
+    border-radius: 30px;
+    padding: 50px 40px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+    transition: all 0.8s ease-in-out;
+}
+
+/* TYPOGRAPHY */
+.card-content h3 { color: #00bfff; margin: 0; font-size: 1.6rem; }
+.card-content .role { color: #b388ff; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; }
+.card-content blockquote { font-style: italic; color: #ddd; margin: 30px 0; font-size: 1.2rem; line-height: 1.6; }
+
+.download-link {
+    display: inline-block;
+    color: #7df9ff;
+    border: 2px solid #7df9ff;
+    padding: 10px 25px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* THE FOCUS ANIMATION:
+   We sync two animations: 
+   1. The Track moves the cards.
+   2. Each card has its own brightness animation that matches the track timing.
+*/
+
+@keyframes centerLoop {
+    0%, 26% { transform: translateX(0); } /* Nicola */
+    33%, 59% { transform: translateX(-20%); } /* Liam */
+    66%, 92% { transform: translateX(-40%); } /* Maggie */
+    100% { transform: translateX(-60%); } /* Loop back to Nicola */
+}
+
+/* Individual Card Brightness Timing */
+.testimonial-track .testimonial-card:nth-child(1) .card-content { animation: focusEffect 15s infinite 0s; }
+.testimonial-track .testimonial-card:nth-child(2) .card-content { animation: focusEffect 15s infinite 5s; }
+.testimonial-track .testimonial-card:nth-child(3) .card-content { animation: focusEffect 15s infinite 10s; }
+/* Duplicates need to be handled to keep the loop seamless */
+.testimonial-track .testimonial-card:nth-child(4) .card-content { animation: focusEffect 15s infinite 0s; }
+.testimonial-track .testimonial-card:nth-child(5) .card-content { animation: focusEffect 15s infinite 5s; }
+
+@keyframes focusEffect {
+    0%, 26%, 100% { 
+        opacity: 1; 
+        transform: scale(1.1); 
+        border-color: #7d5fff; 
+        filter: blur(0px);
+    }
+    33%, 92% { 
+        opacity: 0.2; 
+        transform: scale(0.85); 
+        border-color: rgba(125, 95, 255, 0.1);
+        filter: blur(2px);
+    }
+}
+
+/* Pause on hover so the user can read or download */
+.testimonial-carousel-wrapper:hover .testimonial-track,
+.testimonial-carousel-wrapper:hover .card-content {
+    animation-play-state: paused;
+}
