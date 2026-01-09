@@ -74,3 +74,47 @@ document.addEventListener("DOMContentLoaded", function () {
         updateSlide(currentIndex);
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.querySelector('.show-images');
+    if (!container) return;
+
+    const folder = container.getAttribute('data-folder');
+    const total = parseInt(container.getAttribute('data-total'));
+    const slideImg = document.getElementById('slideImage');
+    const extensions = ['png', 'jpg', 'jpeg', 'PNG', 'JPG'];
+    let currentIndex = 1;
+
+    async function loadImage(index) {
+        for (let ext of extensions) {
+            // Path: Go up one folder, into assets/gallery/Folder/Index.ext
+            const path = `../assets/gallery/${folder}/${index}.${ext}`;
+            
+            const success = await new Promise((resolve) => {
+                const img = new Image();
+                img.onload = () => resolve(true);
+                img.onerror = () => resolve(false);
+                img.src = path;
+            });
+
+            if (success) {
+                slideImg.src = path;
+                return;
+            }
+        }
+    }
+
+    if (total > 0) {
+        loadImage(currentIndex);
+    }
+
+    // Navigation
+    document.querySelector('.arrow.right').addEventListener('click', () => {
+        currentIndex = (currentIndex >= total) ? 1 : currentIndex + 1;
+        loadImage(currentIndex);
+    });
+
+    document.querySelector('.arrow.left').addEventListener('click', () => {
+        currentIndex = (currentIndex <= 1) ? total : currentIndex - 1;
+        loadImage(currentIndex);
+    });
+});
