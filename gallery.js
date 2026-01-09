@@ -137,3 +137,74 @@ document.addEventListener("DOMContentLoaded", function () {
 
     scanForImages();
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const galleryContainer = document.querySelector('.show-images');
+    if (!galleryContainer) return;
+
+    // Get info from your HTML attributes
+    const folderName = galleryContainer.getAttribute('data-folder');
+    const totalFiles = parseInt(galleryContainer.getAttribute('data-total'));
+    const slideImg = document.getElementById('slideImage');
+    const prevBtn = document.querySelector('.arrow.left');
+    const nextBtn = document.querySelector('.arrow.right');
+
+    let currentIndex = 1;
+
+    // This function tries to find the file regardless of extension
+    async function getImagePath(index) {
+        const extensions = ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG'];
+        
+        for (let ext of extensions) {
+            // "../" jumps out of the showpages folder to find the assets folder
+            const testPath = `../assets/gallery/${folderName}/${index}.${ext}`;
+            
+            const exists = await fileExists(testPath);
+            if (exists) return testPath;
+        }
+        return null;
+    }
+
+    // Helper to check if the image actually exists on the server
+    function fileExists(url) {
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.onload = () => resolve(true);
+            img.onerror = () => resolve(false);
+            img.src = url;
+        });
+    }
+
+    async function updateDisplay(index) {
+        const validPath = await getImagePath(index);
+        if (validPath) {
+            slideImg.style.opacity = '0'; // Smooth transition
+            setTimeout(() => {
+                slideImg.src = validPath;
+                slideImg.style.opacity = '1';
+            }, 200);
+        } else {
+            console.error(`System could not find image ${index} in folder: ${folderName}`);
+        }
+    }
+
+    // Initialize gallery
+    if (totalFiles > 0) {
+        updateDisplay(currentIndex);
+    } else {
+        // If no images, hide the gallery box
+        galleryContainer.style.display = 'none';
+        const layout = document.querySelector('.show-layout');
+        if (layout) layout.style.gridTemplateColumns = '1fr';
+    }
+
+    // Event Listeners for Arrows
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex >= totalFiles) ? 1 : currentIndex + 1;
+        updateDisplay(currentIndex);
+    });
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex <= 1) ? totalFiles : currentIndex - 1;
+        updateDisplay(currentIndex);
+    });
+});
