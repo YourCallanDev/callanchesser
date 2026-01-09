@@ -118,3 +118,30 @@ document.addEventListener("DOMContentLoaded", function () {
         loadImage(currentIndex);
     });
 });
+let slideIndex = 0;
+
+function showSlides(n) {
+    const slides = document.getElementsByClassName("slide");
+    if (slides.length === 0) return;
+
+    // Reset index if out of bounds
+    if (n >= slides.length) { slideIndex = 0; }
+    if (n < 0) { slideIndex = slides.length - 1; }
+
+    // Hide all slides
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+    }
+
+    // Show the current slide
+    slides[slideIndex].classList.add("active");
+}
+
+function changeSlide(n) {
+    showSlides(slideIndex += n);
+}
+
+// Ensure the first slide is visible when page loads
+document.addEventListener("DOMContentLoaded", function() {
+    showSlides(slideIndex);
+});
