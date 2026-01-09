@@ -1337,3 +1337,60 @@ footer { text-align: center; padding: 20px; border-top: 1px solid #111; color: #
 @media (max-width: 600px) {
     .banner-content { flex-direction: column; text-align: center; }
 }
+/* === UPCOMING BANNER & FIXES === */
+.upcoming-banner {
+    background: #111122;
+    border: 1px solid #7d5fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.status-badge {
+    background: #ff3e3e;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    animation: pulseFade 2s infinite;
+}
+
+.ticket-btn {
+    background: #7d5fff;
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.ticket-btn:hover {
+    background: white;
+    color: black !important;
+}
+
+#slideImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 1; /* Ensures image isn't hidden by default */
+}
+
+@keyframes pulseFade {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
