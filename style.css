@@ -1435,3 +1435,45 @@ footer { text-align: center; padding: 20px; border-top: 1px solid #111; color: #
 
 .arrow.left { left: 10px; }
 .arrow.right { right: 10px; }
+.show-images {
+    position: relative;
+    width: 100%;
+    min-height: 400px; /* Adjust based on your image size */
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.slide {
+    display: none; /* Hide all by default */
+    max-width: 100%;
+    max-height: 600px;
+    object-fit: contain;
+}
+
+.slide.active {
+    display: block; /* Only show the one with the active class */
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100; /* Keeps buttons on top of images */
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+
+.arrow.left { left: 10px; }
+.arrow.right { right: 10px; }
+
+.arrow:hover {
+    background: #7d5fff;
+}
