@@ -812,3 +812,10 @@ footer { text-align: center; padding: 20px; border-top: 1px solid #111; color: #
     margin: 60px auto;
     width: 80%;
 }
+#slideImage {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0; /* Starts hidden until JS loads the first image */
+}
