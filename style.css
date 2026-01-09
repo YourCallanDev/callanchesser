@@ -1262,3 +1262,78 @@ footer { text-align: center; padding: 20px; border-top: 1px solid #111; color: #
 .slider-track:hover {
     animation-play-state: paused;
 }
+/* === UPCOMING SHOW BANNER === */
+.upcoming-banner {
+    background: linear-gradient(90deg, #004e92, #000428); /* Deep Blue */
+    border: 2px solid #00d2ff;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.status-badge {
+    background: #ff3e3e; /* Red Alert */
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    animation: pulse 2s infinite;
+}
+
+.banner-content p {
+    color: white;
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.ticket-btn {
+    background: #00d2ff;
+    color: #000 !important;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ticket-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00d2ff;
+}
+
+/* === MERMAID PAGE COLORS === */
+.mermaid-theme {
+    border-color: #00d2ff !important;
+}
+
+.mermaid-accent {
+    border-left: 5px solid #00d2ff !important;
+    background: rgba(0, 78, 146, 0.2) !important;
+}
+
+/* Simple pulse animation for the badge */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .banner-content { flex-direction: column; text-align: center; }
+}
