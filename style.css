@@ -1394,3 +1394,44 @@ footer { text-align: center; padding: 20px; border-top: 1px solid #111; color: #
     50% { opacity: 0.7; }
     100% { opacity: 1; }
 }
+/* === MANUAL SLIDESHOW STYLES === */
+.show-images {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    background: #000;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.slide {
+    display: none; /* Hide all images */
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.slide.active {
+    display: block; /* Only show the active one */
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.arrow {
+    position: absolute;
+    z-index: 10;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.arrow.left { left: 10px; }
+.arrow.right { right: 10px; }
