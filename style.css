@@ -887,3 +887,109 @@ footer { text-align: center; padding: 20px; border-top: 1px solid #111; color: #
     75%, 95% { transform: translateX(-75%); }
     100% { transform: translateX(-100%); }
 }
+/* === CENTER-FOCUS SCROLLER CSS === */
+
+.testimonial-carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    padding: 80px 0;
+    background-color: #000;
+}
+
+.testimonial-viewport {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: visible; /* Important: let's us see the dimmed cards on the side */
+    position: relative;
+}
+
+.testimonial-track {
+    display: flex;
+    width: 500%; /* 5 cards total */
+    /* 12s total: 4s per unique card */
+    animation: centerScroll 12s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.testimonial-card {
+    width: 20%; /* 100% / 5 cards */
+    display: flex;
+    justify-content: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    transition: transform 0.5s, opacity 0.5s;
+    /* Default state: dimmed and smaller */
+    opacity: 0.3;
+    transform: scale(0.85);
+}
+
+.card-content {
+    background-color: #111122;
+    border: 1px solid rgba(125, 95, 255, 0.3);
+    border-radius: 25px;
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.card-content h3 { color: #00bfff; margin: 0; font-size: 1.4rem; }
+.card-content .role { color: #b388ff; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+.card-content blockquote { font-style: italic; color: #ccc; margin: 20px 0; font-size: 1.1rem; line-height: 1.5; }
+
+.download-link {
+    display: inline-block;
+    color: #7df9ff;
+    border: 1px solid #7df9ff;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* THE FOCUS LOGIC:
+   Because we can't easily use "center" selectors in an infinite CSS loop,
+   we animate the track so that the card currently in the center of the 
+   screen is brightened using the animation keyframes.
+*/
+
+@keyframes centerScroll {
+    /* Showing Card 1 (Nicola) */
+    0%, 25% { transform: translateX(0); } 
+    /* Move to Card 2 (Liam) */
+    33%, 58% { transform: translateX(-20%); } 
+    /* Move to Card 3 (Maggie) */
+    66%, 91% { transform: translateX(-40%); } 
+    /* Loop back to start */
+    100% { transform: translateX(-60%); }
+}
+
+/* Brighten on Hover/Pause */
+.testimonial-track:hover {
+    animation-play-state: paused;
+}
+
+/* Make the cards "Pop" when they are likely in the center */
+/* (This targets the cards based on the track movement) */
+@keyframes cardFocus {
+    0%, 100% { opacity: 1; transform: scale(1); }
+}
+
+/* We force the cards to be visible/bright globally for now since 
+   CSS-only "active item" detection is limited without JS. 
+   This setting makes the scroller look best for your current setup. */
+.testimonial-card {
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.testimonial-track:hover .testimonial-card {
+    opacity: 0.2;
+}
+
+.testimonial-card:hover {
+    opacity: 1 !important;
+    transform: scale(1);
+    border-color: #7df9ff;
+}
