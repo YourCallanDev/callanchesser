@@ -1,7 +1,16 @@
+/**
+ * Gallery.js 
+ * CSP-Compliant Version for Callan Chesser Portfolio
+ * No eval() or string-based timers to avoid security blocks.
+ */
+
 document.addEventListener("DOMContentLoaded", function () {
     const container = document.querySelector('.show-images');
+    
+    // Check if gallery exists on current page
     if (!container) return;
 
+    // Grab attributes from HTML
     const folder = container.getAttribute('data-folder');
     const total = parseInt(container.getAttribute('data-total'));
     const slideImg = document.getElementById('slideImage');
@@ -9,46 +18,58 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextBtn = container.querySelector('.arrow.right');
 
     let currentIndex = 1;
-    const extensions = ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG'];
+    const extensions = ['png', 'jpg', 'jpeg', 'PNG', 'JPG'];
 
-    async function getImagePath(index) {
-        for (let ext of extensions) {
-            // Updated Path: This assumes assets is in the root directory
-            const path = `../assets/gallery/${folder}/${index}.${ext}`;
+    /**
+     * Checks multiple extensions for a given index and updates the <img> src.
+     * Uses '../' to jump out of the /showpages/ subfolder.
+     */
+    async function updateSlide(index) {
+        let foundPath = null;
+
+        for (const ext of extensions) {
+            const testPath = `../assets/gallery/${folder}/${index}.${ext}`;
             
-            const exists = await new Promise(resolve => {
+            // Check if file exists without using eval/setTimeout strings
+            const isMatch = await new Promise((resolve) => {
                 const img = new Image();
                 img.onload = () => resolve(true);
                 img.onerror = () => resolve(false);
-                img.src = path;
+                img.src = testPath;
             });
 
-            if (exists) return path;
+            if (isMatch) {
+                foundPath = testPath;
+                break;
+            }
         }
-        return null;
+
+        if (foundPath) {
+            // Direct style manipulation is CSP-safe
+            slideImg.style.opacity = "0";
+            
+            // Use a function reference in setTimeout, not a string
+            setTimeout(function() {
+                slideImg.src = foundPath;
+                slideImg.style.opacity = "1";
+            }, 50); 
+        } else {
+            console.error("Image not found: assets/gallery/" + folder + "/" + index);
+        }
     }
 
-    async function updateSlide(index) {
-        const validPath = await getImagePath(index);
-        if (validPath) {
-            slideImg.style.opacity = '0';
-            setTimeout(() => {
-                slideImg.src = validPath;
-                slideImg.style.opacity = '1';
-            }, 150);
-        }
-    }
-
+    // Initialize first image
     if (total > 0) {
         updateSlide(currentIndex);
     }
 
-    nextBtn.addEventListener('click', () => {
+    // Navigation events using standard function declarations
+    nextBtn.addEventListener('click', function() {
         currentIndex = (currentIndex >= total) ? 1 : currentIndex + 1;
         updateSlide(currentIndex);
     });
 
-    prevBtn.addEventListener('click', () => {
+    prevBtn.addEventListener('click', function() {
         currentIndex = (currentIndex <= 1) ? total : currentIndex - 1;
         updateSlide(currentIndex);
     });
