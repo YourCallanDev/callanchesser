@@ -819,3 +819,71 @@ footer { text-align: center; padding: 20px; border-top: 1px solid #111; color: #
     transition: opacity 0.2s ease-in-out;
     opacity: 0; /* Starts hidden until JS loads the first image */
 }
+/* === AUTOMATIC TESTIMONIAL SCROLLER === */
+
+.testimonial-carousel-wrapper {
+    overflow: hidden; /* Clips the cards so only one shows */
+    width: 100%;
+    position: relative;
+    padding: 60px 0;
+    background-color: #050505;
+}
+
+.testimonial-track {
+    display: flex;
+    width: 400%; /* Represents 4 cards */
+    animation: scrollTestimonials 16s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.testimonial-card {
+    width: 100%; /* Each card takes up the full container width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.card-content {
+    background-color: #111122;
+    border: 1px solid rgba(125, 95, 255, 0.3);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(125, 95, 255, 0.15);
+}
+
+.card-content h3 { color: #00bfff; margin: 0; font-size: 1.5rem; }
+.card-content .role { color: #b388ff; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+.card-content blockquote { font-style: italic; color: #ccc; margin: 30px 0; font-size: 1.2rem; line-height: 1.6; }
+
+.download-link {
+    display: inline-block;
+    color: #7df9ff;
+    border: 1px solid #7df9ff;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.download-link:hover {
+    background: #7df9ff;
+    color: #000;
+    box-shadow: 0 0 15px #7df9ff;
+}
+
+/* Pause on hover so the user can read or click the link */
+.testimonial-track:hover {
+    animation-play-state: paused;
+}
+
+/* Animation Stages: 16 seconds total, 4 seconds per slide */
+@keyframes scrollTestimonials {
+    0%, 20% { transform: translateX(0); }
+    25%, 45% { transform: translateX(-25%); }
+    50%, 70% { transform: translateX(-50%); }
+    75%, 95% { transform: translateX(-75%); }
+    100% { transform: translateX(-100%); }
+}
