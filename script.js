@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevBtn = document.getElementById("prevBtn");
   const gallery = document.getElementById("showGallery");
 
-  if (!slides.length || !nextBtn || !prevBtn) return;
+  if (!slides.length || !nextBtn || !prevBtn || !gallery) return;
 
   let currentIndex = 0;
 
@@ -90,7 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const indicatorsContainer = document.createElement("div");
   indicatorsContainer.className = "slide-indicators";
   
-  // Create indicator dots for each slide
+  // Create indicator dots for each slide and store references
+  const dots = [];
   slides.forEach((_, index) => {
     const dot = document.createElement("button");
     dot.className = "indicator-dot";
@@ -103,6 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
     indicatorsContainer.appendChild(dot);
+    dots.push(dot);
   });
   
   // Insert indicators after the gallery
@@ -112,8 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     slides.forEach(slide => slide.classList.remove("active"));
     slides[index].classList.add("active");
     
-    // Update indicator dots
-    const dots = document.querySelectorAll(".indicator-dot");
+    // Update indicator dots using cached references
     dots.forEach(dot => dot.classList.remove("active"));
     dots[index].classList.add("active");
   }
