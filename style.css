@@ -1477,3 +1477,37 @@ footer { text-align: center; padding: 20px; border-top: 1px solid #111; color: #
 .arrow:hover {
     background: #7d5fff;
 }
+
+/* Slide Indicators */
+.slide-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 101;
+}
+
+.indicator-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.indicator-dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+    border-color: #fff;
+}
+
+.indicator-dot.active {
+    background: #7d5fff;
+    border-color: #7d5fff;
+    width: 14px;
+    height: 14px;
+}
