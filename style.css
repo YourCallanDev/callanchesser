@@ -91,37 +91,48 @@ header nav a:hover {
     background-color: #050505;
 }
 
+.slider-outer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
 .slider-container {
     overflow: hidden;
-    max-width: 800px;
-    margin: 0 auto;
+    flex: 1;
+    min-width: 0;
 }
 
 .slider-track {
     display: flex;
-    animation: slide 20s linear infinite;
+    gap: 20px;
+    transition: transform 0.5s ease;
+    will-change: transform;
 }
 
 .testi-item {
-    min-width: 100%;
+    flex-shrink: 0;
     background-color: #111122;
     border: 1px solid rgba(125, 95, 255, 0.3);
     border-radius: 20px;
-    padding: 40px;
+    padding: 30px;
     text-align: center;
     box-shadow: 0 0 25px rgba(125, 95, 255, 0.15);
+    box-sizing: border-box;
 }
 
 .testi-item strong {
     display: block;
     color: #00bfff;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 .testi-item p {
     color: #ccc;
     font-style: italic;
-    margin: 20px 0;
+    margin: 15px 0;
     line-height: 1.6;
 }
 
@@ -141,9 +152,64 @@ header nav a:hover {
     box-shadow: 0 0 15px #7df9ff;
 }
 
-@keyframes slide {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+.testi-nav {
+    background: rgba(125, 95, 255, 0.2);
+    border: 1px solid #7d5fff;
+    color: #7df9ff;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: 0.3s;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.testi-nav:hover,
+.testi-nav:focus {
+    background: #7d5fff;
+    box-shadow: 0 0 10px #7d5fff;
+    outline: none;
+}
+
+.testi-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.testi-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #333;
+    border: 1px solid #555;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0;
+}
+
+.testi-dot.active {
+    background: #7df9ff;
+    box-shadow: 0 0 8px #7df9ff;
+    border-color: #7df9ff;
+}
+
+@media (max-width: 768px) {
+    .slider-outer { gap: 6px; }
+}
+
+@media (max-width: 480px) {
+    .testi-nav {
+        width: 36px;
+        height: 36px;
+        font-size: 1.4rem;
+    }
 }
 
 /* === CREDITS PAGE === */
