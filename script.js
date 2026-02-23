@@ -113,6 +113,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const origItems = Array.from(track.querySelectorAll('.testi-item'));
   const count = origItems.length;
   const GAP = 20;
+  const MOBILE_BP = 480;
+  const TABLET_BP = 768;
 
   // Clone all items for seamless infinite scroll
   origItems.forEach(function (item) {
@@ -128,8 +130,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function getVisible() {
     const w = window.innerWidth;
-    if (w <= 480) return 1;
-    if (w <= 768) return 2;
+    if (w <= MOBILE_BP) return 1;
+    if (w <= TABLET_BP) return 2;
     return 3;
   }
 
@@ -180,8 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
         track.style.transition = 'none';
         track.style.transform = 'translateX(-' + ((current - count) * getStepWidth()) + 'px)';
         current -= count;
-        void track.offsetWidth;
-        track.style.transition = 'transform 0.5s ease';
+        void track.offsetWidth; // force browser reflow so 'none' transition takes effect
         updateDots();
       }
       transitioning = false;
@@ -195,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
       track.style.transition = 'none';
       track.style.transform = 'translateX(-' + ((current + count) * getStepWidth()) + 'px)';
       current += count;
-      void track.offsetWidth;
+      void track.offsetWidth; // force browser reflow so 'none' transition takes effect
     }
     goTo(current - 1);
     setTimeout(function () { transitioning = false; }, 510);
