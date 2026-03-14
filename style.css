@@ -87,41 +87,60 @@ header nav a:hover {
 
 /* === TESTIMONIAL SLIDER (INDEX) === */
 .testimonial-slider {
-    padding: 60px 20px;
+    padding: 60px 0;
     background-color: #050505;
 }
 
 .slider-container {
     overflow: hidden;
-    max-width: 800px;
+    max-width: 1020px;
     margin: 0 auto;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
 .slider-track {
     display: flex;
-    animation: slide 20s linear infinite;
+    gap: 20px;
+    padding: 12px 0;
+    animation: testimonial-scroll 22s linear infinite;
+    width: max-content;
+    cursor: default;
 }
 
+.slider-track:hover {
+    animation-play-state: paused;
+}
+
+/* each card: 320px wide, 3 across at 1020px container (3×320 + 2×20 = 1000px) */
 .testi-item {
-    min-width: 100%;
+    flex: 0 0 320px;
+    box-sizing: border-box;
     background-color: #111122;
     border: 1px solid rgba(125, 95, 255, 0.3);
     border-radius: 20px;
-    padding: 40px;
+    padding: 30px;
     text-align: center;
     box-shadow: 0 0 25px rgba(125, 95, 255, 0.15);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.testi-item:hover {
+    box-shadow: 0 0 30px rgba(0, 191, 255, 0.3);
+    border-color: rgba(0, 191, 255, 0.5);
+    transform: translateY(-4px);
 }
 
 .testi-item strong {
     display: block;
     color: #00bfff;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 .testi-item p {
     color: #ccc;
     font-style: italic;
-    margin: 20px 0;
+    margin: 16px 0;
     line-height: 1.6;
 }
 
@@ -141,9 +160,26 @@ header nav a:hover {
     box-shadow: 0 0 15px #7df9ff;
 }
 
-@keyframes slide {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+/* translate by 4 × (320px card + 20px gap) = 1360px to loop 4 unique items */
+@keyframes testimonial-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-1360px); }
+}
+
+@media (max-width: 768px) {
+    .testimonial-slider {
+        padding: 40px 0;
+    }
+
+    .slider-container {
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+    }
+
+    .testi-item {
+        flex: 0 0 260px;
+        padding: 24px 20px;
+    }
 }
 
 /* === CREDITS PAGE === */
