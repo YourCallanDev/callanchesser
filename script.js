@@ -45,7 +45,7 @@ const right = document.querySelector(".arrow.right");
 
 if (gallery) {
   const SHOW_FOLDER = "SHOW NAME"; // EXACT folder name
-  const basePath = `../assets/gallery/${SHOW_FOLDER}/`;
+  const basePath = `/assets/gallery/${SHOW_FOLDER}/`;
 
   const extensions = ["jpg", "jpeg", "png"];
   let images = [];
@@ -80,6 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".slide");
   const nextBtn = document.getElementById("nextBtn");
   const prevBtn = document.getElementById("prevBtn");
+
+  if (!slides.length || !nextBtn || !prevBtn) return;
 
   let currentIndex = 0;
 

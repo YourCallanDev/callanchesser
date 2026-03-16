@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let foundPath = null;
 
         for (const ext of extensions) {
-            const testPath = `../assets/gallery/${folder}/${index}.${ext}`;
+            const testPath = `/assets/gallery/${folder}/${index}.${ext}`;
             
             // Check if file exists without using eval/setTimeout strings
             const isMatch = await new Promise((resolve) => {
@@ -86,8 +86,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function loadImage(index) {
         for (let ext of extensions) {
-            // Path: Go up one folder, into assets/gallery/Folder/Index.ext
-            const path = `../assets/gallery/${folder}/${index}.${ext}`;
+            // Path: root-relative path into assets/gallery/Folder/Index.ext
+            const path = `/assets/gallery/${folder}/${index}.${ext}`;
             
             const success = await new Promise((resolve) => {
                 const img = new Image();
