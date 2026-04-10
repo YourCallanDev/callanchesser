@@ -17,19 +17,30 @@
 </head>
 <body>
 
+<div id="scroll-progress"></div>
+
 <header>
-  <img src="/assets/logo.png" alt="Callan Chesser Logo" class="logo" />
+  <a href="/"><img src="/assets/logo.png" alt="Callan Chesser Logo" class="logo"></a>
   <nav>
     <a href="/">Home</a>
     <a href="/credits/">Credits</a>
     <a href="/contact/" class="active">Contact</a>
   </nav>
+  <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+
+<nav class="mobile-nav">
+  <a href="/">Home</a>
+  <a href="/credits/">Credits</a>
+  <a href="/contact/" class="active">Contact</a>
+</nav>
 
 <section class="contact-container reveal">
   <div class="unified-card">
     <h2>Contact Me</h2>
-    <p style="margin-bottom: 30px; color: #ccc;">If you’d like to get in touch, fill out the form below and I’ll get back to you soon.</p>
+    <p style="margin-bottom: 30px; color: #ccc;">If you'd like to get in touch, fill out the form below and I'll get back to you soon.</p>
 
     <form action="https://formspree.io/f/mwprrrej" method="POST" class="contact-form">
       <div style="text-align: left; margin-bottom: 20px;">
@@ -48,6 +59,8 @@
 </section>
 
 <footer>© 2026 Callan Chesser | Technical Theatre</footer>
+
+<button id="back-to-top" aria-label="Back to top">↑</button>
 
 </body>
 </html>
