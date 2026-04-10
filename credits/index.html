@@ -17,14 +17,25 @@
 </head>
 <body class="credits-body">
 
+<div id="scroll-progress"></div>
+
 <header>
-  <img src="/assets/logo.png" alt="Callan Chesser Logo" class="logo">
+  <a href="/"><img src="/assets/logo.png" alt="Callan Chesser Logo" class="logo"></a>
   <nav>
     <a href="/">Home</a>
     <a href="/credits/" class="active">Credits</a>
     <a href="/contact/">Contact</a>
   </nav>
+  <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+
+<nav class="mobile-nav">
+  <a href="/">Home</a>
+  <a href="/credits/" class="active">Credits</a>
+  <a href="/contact/">Contact</a>
+</nav>
 
 <main class="credits-wrapper">
 
@@ -34,13 +45,14 @@
       <a href="/showpages/youth/summer-in-the-city/open-day" class="recent-card">
         <div class="card-glow"></div>
         <span>SiTC Open Day</span>
+      </a>
       <a href="/showpages/youth/summer-in-the-city/matildia" class="recent-card">
         <div class="card-glow"></div>
         <span>Matildia @ SiTC</span>
+      </a>
       <a href="/showpages/youth/summer-in-the-city/wicked/part-2" class="recent-card">
         <div class="card-glow"></div>
         <span>Wicked 2 @ SiTC</span>
-      </a>
       </a>
     </div>
   </section>
@@ -70,13 +82,13 @@
   <hr class="section-divider reveal">
 
   <div class="credits-grid">
-    
+
     <div class="credits-column reveal reveal-delay-1">
       <div class="category-box">
         <h2 class="category-title">Amateur Theatre</h2>
         <div class="show-list">
           <span class="sub-heading">Drumchapel Panto Club</span>
-          <a href="showpages/Amateur/drummchapel-amateur-panto-club/snow-white" class="credit-link">Snow White & The Magnificent Eight</a>
+          <a href="/showpages/Amateur/drummchapel-amateur-panto-club/snow-white" class="credit-link">Snow White &amp; The Magnificent Eight</a>
         </div>
       </div>
     </div>
@@ -85,11 +97,11 @@
       <div class="category-box">
         <h2 class="category-title">Education</h2>
         <div class="show-list">
-        <span class="sub-heading">The Glasgow Academy</span>
+          <span class="sub-heading">The Glasgow Academy</span>
           <span class="sub-heading">Drama Club</span>
           <a href="/showpages/the-glasgow-academy/bright-young-things" class="credit-link">Bright. Young. Things.</a>
           <a href="/showpages/the-glasgow-academy/animal-farm" class="credit-link">Animal Farm</a>
-          
+
           <span class="sub-heading">Prep School</span>
           <a href="/showpages/the-glasgow-academy/granny-got-stuck/time-machine" class="credit-link">Granny Got Stuck In The Time Machine</a>
           <a href="/showpages/the-glasgow-academy/addams-family" class="credit-link">Addams Family</a>
@@ -98,12 +110,12 @@
           <a href="/showpages/the-glasgow-academy/julia-ceaser" class="credit-link">Julia Caeser</a>
 
           <span class="sub-heading">Charity Events</span>
-          <a href="/showpages/the-glasgow-academy/tgagt/2026" class="credit-link">TGA's Got Talent 26’</a>
-          <a href="/showpages/the-glasgow-academy/lip-sync/2026" class="credit-link">Lip Sync 26’</a>
-          <a href="/showpages/the-glasgow-academy/tgagt/2025" class="credit-link">TGA's Got Talent 25’</a>
-          <a href="/showpages/the-glasgow-academy/fashion-show/2025" class="credit-link">Fashion 25’</a>
-          <a href="/showpages/the-glasgow-academy/fashion-show/2024" class="credit-link">Fashion 24’</a>
-          <a href="/showpages/the-glasgow-academy/tgagt/2024" class="credit-link">TGA's Got Talent 24’</a>
+          <a href="/showpages/the-glasgow-academy/tgagt/2026" class="credit-link">TGA's Got Talent 26'</a>
+          <a href="/showpages/the-glasgow-academy/lip-sync/2026" class="credit-link">Lip Sync 26'</a>
+          <a href="/showpages/the-glasgow-academy/tgagt/2025" class="credit-link">TGA's Got Talent 25'</a>
+          <a href="/showpages/the-glasgow-academy/fashion-show/2025" class="credit-link">Fashion 25'</a>
+          <a href="/showpages/the-glasgow-academy/fashion-show/2024" class="credit-link">Fashion 24'</a>
+          <a href="/showpages/the-glasgow-academy/tgagt/2024" class="credit-link">TGA's Got Talent 24'</a>
           <a href="/showpages/the-glasgow-academy/lip-sync/2024" class="credit-link">Lip Sync 24'</a>
         </div>
       </div>
@@ -114,7 +126,7 @@
         <h2 class="category-title">Youth Theatre</h2>
         <div class="show-list">
           <span class="sub-heading">Summer In The City</span>
-          <span class="sub-heading">2024</span>          
+          <span class="sub-heading">2024</span>
           <a href="/showpages/youth/summer-in-the-city/shrek" class="credit-link">Shrek : Filmed</a>
           <a href="/showpages/youth/summer-in-the-city/harry-potter" class="credit-link">Harry Potter : Staged</a>
           <a href="/showpages/youth/summer-in-the-city/willy-wonka" class="credit-link">Willy Wonka : Staged</a>
@@ -124,7 +136,6 @@
           <a href="/showpages/youth/summer-in-the-city/kpop-demon-hunters" class="credit-link">KPOP Demon Hunters : The Movie</a>
           <span class="sub-heading">2026</span>
 
-          
           <span class="sub-heading">Minerva Juniors</span>
           <a href="/showpages/youth/minerva-jrs/little-mermaid" class="credit-link">The Little Mermaid</a>
         </div>
@@ -135,5 +146,8 @@
 </main>
 
 <footer>© 2026 Callan Chesser | Technical Theatre</footer>
+
+<button id="back-to-top" aria-label="Back to top">↑</button>
+
 </body>
 </html>
