@@ -523,58 +523,50 @@ footer {
 }
 /* === FRINGE BANNER === */
 .fringe-banner {
-    margin: 20px auto 70px;
-    padding: 0 20px;
-    max-width: 1100px;
+    padding: 0 20px 70px;
 }
 
 .fringe-content {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(135deg, rgba(0,191,255,0.15), rgba(125,95,255,0.2));
-    border: 1px solid rgba(125, 95, 255, 0.4);
-    border-radius: 30px;
-    padding: 45px 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #111122;
+    border: 1px solid rgba(125, 95, 255, 0.3);
+    border-radius: 25px;
+    padding: 40px;
     text-align: center;
-    box-shadow: 0 0 35px rgba(0, 191, 255, 0.12);
-    backdrop-filter: blur(8px);
+    box-shadow: 0 0 25px rgba(125, 95, 255, 0.15);
+    transition: 0.3s ease;
 }
 
-.fringe-content::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(circle at top right, rgba(125,95,255,0.25), transparent 35%),
-      radial-gradient(circle at bottom left, rgba(0,191,255,0.2), transparent 35%);
-    pointer-events: none;
+.fringe-content:hover {
+    box-shadow: 0 0 30px rgba(0, 191, 255, 0.25);
+    border-color: rgba(0, 191, 255, 0.5);
+    transform: translateY(-4px);
 }
 
 .fringe-tag {
     display: inline-block;
-    margin-bottom: 18px;
-    padding: 10px 22px;
-    border-radius: 999px;
     background: linear-gradient(90deg, #00bfff, #7d5fff);
-    color: white;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 30px;
     font-size: 0.85rem;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 1px;
+    margin-bottom: 18px;
 }
 
 .fringe-content h2 {
-    margin: 0 0 15px;
-    color: #ffffff;
-    font-size: 2.2rem;
-    text-shadow: 0 0 15px rgba(0,191,255,0.5);
+    color: #00bfff;
+    text-shadow: 0 0 10px #00bfff;
+    margin-bottom: 15px;
 }
 
 .fringe-content p {
     max-width: 760px;
     margin: 0 auto;
-    color: #d7d7e8;
-    line-height: 1.8;
-    font-size: 1.05rem;
+    color: #ccc;
+    line-height: 1.7;
 }
 
 .fringe-content em {
@@ -584,14 +576,10 @@ footer {
 
 @media (max-width: 768px) {
     .fringe-content {
-        padding: 35px 25px;
+        padding: 30px 22px;
     }
 
     .fringe-content h2 {
-        font-size: 1.8rem;
-    }
-
-    .fringe-content p {
-        font-size: 1rem;
+        font-size: 1.7rem;
     }
 }
