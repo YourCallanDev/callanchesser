@@ -1,82 +1,26 @@
-document.querySelectorAll(".credit-header").forEach(header => {
-  header.addEventListener("click", () => {
-    const content = header.nextElementSibling;
-    const arrow = header.querySelector("span");
+/* === REVEAL ANIMATIONS === */
 
-    if (!content) return;
-
-    const isOpen = content.style.display === "block";
-
-    content.style.display = isOpen ? "none" : "block";
-    arrow.textContent = isOpen ? "▼" : "▲";
-  });
-});
-/* Scroll Reveal */
 const revealElements = document.querySelectorAll(".reveal");
 
 const revealObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
+  (entries) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-        revealObserver.unobserve(entry.target);
       }
     });
   },
-  { threshold: 0.15 }
+  {
+    threshold: 0.15,
+  }
 );
 
-revealElements.forEach(el => revealObserver.observe(el));
-const reveals = document.querySelectorAll(".reveal");
+revealElements.forEach((el) => revealObserver.observe(el));
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("active");
-    }
-  });
-}, { threshold: 0.2 });
+/* === GALLERY SYSTEM === */
 
-reveals.forEach(r => observer.observe(r));
-const gallery = document.getElementById("show-images");
-const image = document.getElementById("show-image");
-const left = document.querySelector(".arrow.left");
-const right = document.querySelector(".arrow.right");
-
-if (gallery) {
-  const SHOW_FOLDER = "SHOW NAME"; // EXACT folder name
-  const basePath = `/assets/gallery/${SHOW_FOLDER}/`;
-
-  const extensions = ["jpg", "jpeg", "png"];
-  let images = [];
-  let index = 0;
-
-  for (let i = 1; i <= 20; i++) {
-    extensions.forEach(ext => {
-      const img = new Image();
-      img.src = `${basePath}${i}.${ext}`;
-      img.onload = () => {
-        images.push(img.src);
-        if (images.length === 1) {
-          image.src = images[0];
-          gallery.classList.remove("hidden");
-          document.querySelector(".show-layout").classList.remove("no-images");
-        }
-      };
-    });
-  }
-
-  left?.addEventListener("click", () => {
-    index = (index - 1 + images.length) % images.length;
-    image.src = images[index];
-  });
-
-  right?.addEventListener("click", () => {
-    index = (index + 1) % images.length;
-    image.src = images[index];
-  });
-}
 document.addEventListener("DOMContentLoaded", () => {
+
   const slides = document.querySelectorAll(".slide");
   const nextBtn = document.getElementById("nextBtn");
   const prevBtn = document.getElementById("prevBtn");
@@ -86,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentIndex = 0;
 
   function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove("active"));
+    slides.forEach((slide) => slide.classList.remove("active"));
     slides[index].classList.add("active");
   }
 
@@ -99,4 +43,5 @@ document.addEventListener("DOMContentLoaded", () => {
     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
     showSlide(currentIndex);
   });
+
 });
