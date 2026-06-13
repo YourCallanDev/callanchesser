@@ -1,0 +1,88 @@
+{
+"structure": [
+{
+"name": "Amateur Theatre",
+"companies": [
+{
+"name": "Drumchapel Panto Club",
+"groups": [
+"Productions"
+]
+}
+]
+},
+{
+"name": "Education",
+"companies": [
+{
+"name": "The Glasgow Academy",
+"groups": [
+"Drama Club",
+"Prep School",
+"Charity Events"
+]
+}
+]
+},
+{
+"name": "Youth Theatre",
+"companies": [
+{
+"name": "Summer In The City",
+"groups": [
+"2024",
+"2025",
+"2026"
+]
+},
+{
+"name": "Minerva Juniors",
+"groups": [
+"Productions"
+]
+}
+]
+}
+],
+
+"shows": [
+{
+"title": "Into The Woods JR",
+"url": "/showpages/youth/folksy/into-the-woods",
+"category": "Youth Theatre",
+"company": "Summer In The City",
+"group": "2026",
+"role": "Lighting Programmer",
+"venue": "Beacon Arts Centre",
+"startDate": "2026-07-12",
+"endDate": "2026-07-15"
+},
+
+```
+{
+  "title": "Frozen: The Musical",
+  "url": "/showpages/youth/forth/frozen",
+  "category": "Youth Theatre",
+  "company": "Summer In The City",
+  "group": "2026",
+  "role": "Lighting Designer",
+  "venue": "Forth Venue",
+  "startDate": "2026-08-01",
+  "endDate": "2026-08-03"
+},
+
+{
+  "title": "TGA's Got Talent 26",
+  "url": "/showpages/the-glasgow-academy/tgagt/2026",
+  "category": "Education",
+  "company": "The Glasgow Academy",
+  "group": "Charity Events",
+  "role": "Lighting Programmer",
+  "venue": "The Glasgow Academy",
+  "startDate": "2026-05-15",
+  "endDate": "2026-05-15"
+}
+```
+
+]
+}
