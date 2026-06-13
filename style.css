@@ -779,3 +779,8 @@ footer {
     color: #555;
     font-size: 0.9rem;
 }
+.calendar-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
