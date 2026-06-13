@@ -784,3 +784,135 @@ footer {
     grid-template-columns:repeat(4,1fr);
     gap:20px;
 }
+/* ===========================
+DYNAMIC CREDITS PAGE
+=========================== */
+
+.calendar-grid{
+max-width:1300px;
+margin:0 auto 60px;
+padding:0 20px;
+
+```
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+```
+
+}
+
+.calendar-column{
+background:#0a0a0a;
+border:1px solid rgba(125,95,255,0.3);
+border-radius:20px;
+padding:20px;
+min-height:250px;
+
+```
+box-shadow:0 0 15px rgba(125,95,255,0.1);
+```
+
+}
+
+.calendar-month{
+color:#00bfff;
+font-weight:700;
+font-size:1.1rem;
+text-align:center;
+
+```
+padding-bottom:12px;
+margin-bottom:18px;
+
+border-bottom:1px solid #7d5fff;
+```
+
+}
+
+.calendar-show{
+margin-bottom:20px;
+}
+
+.calendar-show:last-child{
+margin-bottom:0;
+}
+
+.calendar-title{
+display:block;
+
+```
+color:#ffffff;
+font-weight:600;
+font-size:1rem;
+
+margin-bottom:6px;
+```
+
+}
+
+.calendar-title:hover
+
+.calendar-meta{
+color:#b388ff;
+font-size:0.85rem;
+line-height:1.4;
+}
+
+.recent-card{
+display:flex;
+flex-direction:column;
+gap:8px;
+align-items:center;
+text-align:center;
+}
+
+.recent-card small{
+color:#b388ff;
+font-size:0.8rem;
+font-weight:500;
+}
+
+#credits-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+
+```
+max-width:1300px;
+margin:60px auto;
+padding:0 20px;
+```
+
+}
+
+.credit-link{
+display:flex;
+flex-direction:column;
+gap:4px;
+}
+
+.credit-link small{
+color:#b388ff;
+font-size:0.8rem;
+font-weight:500;
+}
+
+@media(max-width:1000px){
+
+```
+.calendar-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+```
+
+}
+
+@media(max-width:700px){
+
+```
+.calendar-grid{
+    grid-template-columns:1fr;
+}
+```
+
+}
