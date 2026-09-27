@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. CAROUSEL FUNCTIONALITY (LEFT/RIGHT ARROWS, TOUCH SWIPE, VIDEO PLAY/PAUSE)
+    // 3. CAROUSEL FUNCTIONALITY (LEFT/RIGHT ARROWS & TOUCH SWIPE)
     document.querySelectorAll('.gallery-item-section').forEach(section => {
         const slides = section.querySelectorAll('.slide');
         const prevBtn = section.querySelector('.arrow.left');
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function showSlide(index) {
             slides.forEach((slide, i) => {
                 slide.classList.toggle('active', i === index);
-                // Pause local videos when user clicks away
+                // Pause local videos when navigating away from them
                 if (slide.tagName.toLowerCase() === 'video' && i !== index) {
                     slide.pause();
                 }
@@ -116,18 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, { passive: true });
 
-        // MEDIA CLICK HANDLERS (Video play/pause, Image lightbox)
+        // MEDIA CLICK HANDLERS (Image lightbox only; video uses native browser controls)
         slides.forEach(slide => {
-            if (slide.tagName.toLowerCase() === 'video') {
-                slide.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    if (slide.paused) {
-                        slide.play();
-                    } else {
-                        slide.pause();
-                    }
-                });
-            } else if (slide.tagName.toLowerCase() === 'img') {
+            if (slide.tagName.toLowerCase() === 'img') {
                 slide.addEventListener('click', () => {
                     openLightbox(slide.src, 'img');
                 });
