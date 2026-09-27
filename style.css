@@ -1129,3 +1129,13 @@ font-weight:500;
     text-shadow: 0 0 15px #7df9ff;
     transform: scale(1.1);
 }
+/* Local Video Slides Adjustments */
+.show-images video.slide {
+    width: 100%;
+    max-width: 100%;
+    max-height: 500px;
+    border-radius: 15px;
+    outline: none;
+    object-fit: contain; /* Keeps aspect ratio inside the slider box */
+    box-sizing: border-box;
+}
